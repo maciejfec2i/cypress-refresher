@@ -24,8 +24,11 @@
 // -- This will overwrite an existing command --
 // Cypress.Commands.overwrite('visit', (originalFn, url, options) => { ... })
 
-Cypress.Commands.add("signIn", (username, password) => {
+Cypress.Commands.add("dismissCookies", () => {
     cy.get("a").contains("Dismiss").click()
+})
+
+Cypress.Commands.add("signIn", (username, password) => {
     cy.get("a").contains("My account").click()
     cy.get("[name='login']").should("be.visible")
     cy.get("#username").type(username)
