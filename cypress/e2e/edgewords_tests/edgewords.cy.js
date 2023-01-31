@@ -4,6 +4,7 @@ describe("test on the edgewords demo site", () => {
 
     beforeEach(() => {
         cy.visit("https://www.edgewordstraining.co.uk/demo-site/")
+        cy.dismissCookies()
         cy.fixture("credentials").then(creds => {
             cy.signIn(creds.username, creds.password)
         })
